@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Greeting Alert</title>
+    <style>
+        body {
+            font-family: Arial;
+            background-color:white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            text-align: center;
+            background-color:white;
+            padding: 120px;
+            margin-top: 120px;
+            border-radius: 8px;
+        }
+        h1 {
+            font-size: 32px;
+            color: black;
+        }
+        .button {
+            background-color: green;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+    <script>
+        function displayGreeting() {
+            const currentHour = new Date().getHours();
+            let greeting;
+
+            if (currentHour >= 5 && currentHour < 12) {
+                greeting = "Good Morning!";
+            } else if (currentHour >= 12 && currentHour < 17) {
+                greeting = "Good Afternoon!";
+            } else if (currentHour >= 17 && currentHour < 21) {
+                greeting = "Good Evening!";
+            } else {
+                greeting = "Good Night!";
+            }
+            alert(greeting);
+        }
+        window.onload = displayGreeting;
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Greeting Page</h1>
+        <button class="button" onclick="displayGreeting()">Click to Show Greeting</button>
+    </div>
+</body>
+</html>
