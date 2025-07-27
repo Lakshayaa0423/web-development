@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Gallery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .gallery {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px;
+        }
+        .thumbnail img {
+            width: 250px;
+            height: 250px;
+            cursor: pointer;
+        }
+        .modal {
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        .modal-content {
+            position: relative;
+            margin: auto;
+            padding: 20px;
+            width: 80%;
+            max-width: 800px;
+        }
+        .mySlides {
+            display: none;
+        }
+        .mySlides img {
+            width: 100%;
+        }
+        .close {
+            color: white;
+            position: absolute;
+            top: 10px;
+            right: 25px;
+            font-size: 36px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="gallery">
+        <div class="thumbnail" onclick="openModal();currentSlide(1)">
+            <img src="https://cdn.pixabay.com/photo/2018/12/03/21/22/cartoon-3854292_1280.png" alt="Image 1">
+        </div>
+        <div class="thumbnail" onclick="openModal();currentSlide(2)">
+            <img src="https://www.entertales.com/wp-content/uploads/tom-and-jerry-best-friends-free-hd-wallpaper.jpg" alt="Image 2">
+        </div>
+        <div class="thumbnail" onclick="openModal();currentSlide(3)">
+            <img src="https://th.bing.com/th/id/OIP.YJlei28c0FkbYgQig6Xa1gAAAA?rs=1&pid=ImgDetMain" alt="Image 3">
+        </div>
+    </div>
+
+    <div id="modal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+            <div class="mySlides">
+                <img src="https://th.bing.com/th/id/R.80048c94faacac8b7ff6af18efa3d92a?rik=Ac82coHKVHLVyg&riu=http%3a%2f%2fwonderfulengineering.com%2fwp-content%2fuploads%2f2016%2f01%2fnature-wallpapers-8.jpg&ehk=GoUR7nA3jNm0gIdWFJoMVL1iu%2bJuWOU7Nu7KkgKZzeQ%3d&risl=&pid=ImgRaw&r=0">
+            </div>
+                <div class="mySlides">
+                <img src="https://th.bing.com/th/id/R.6a7a745d0cf6e1478e104e6a7fee6cc1?rik=xULJFzGntGDtew&riu=http%3a%2f%2fwonderfulengineering.com%2fwp-content%2fuploads%2f2016%2f01%2fnature-wallpapers-38.jpg&ehk=dUtU7hvI%2bIv1ZAogg0%2b%2fznLW5KEYTsPob9LlywpnX1Q%3d&risl=&pid=ImgRaw&r=0" alt="Image 2">
+            </div>
+            <div class="mySlides">
+                <img src="https://th.bing.com/th/id/OIP.PWTpspHbNkT2FpnDDyN8RQHaEr?rs=1&pid=ImgDetMain" alt="Image 3">
+            </div>
+        </div>
+    </div>
+    <script>
+        let slideIndex = 1;
+
+        function openModal() {
+            document.getElementById("modal").style.display = "block";
+        }
+        function closeModal() {
+            document.getElementById("modal").style.display = "none";
+        }
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+        function showSlides(n) {
+            let slides = document.getElementsByClassName("mySlides");
+            if (n > slides.length) {slideIndex = 1}
+            if (n < 1) {slideIndex = slides.length}
+            
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slides[slideIndex - 1].style.display = "block";
+        }
+    </script>
+</body>
+</html>
+
